@@ -1,11 +1,18 @@
 import React from 'react';
 import { mount } from 'enzyme'; //mount === fulldom
 import CommentBox from 'components/CommentBox';
+import Root from 'Root';
 
 
 //full dom has interact need to unmount
 let wrapped;
-beforeEach(() => { wrapped = mount(<CommentBox/>); });
+beforeEach(() => { 
+  wrapped = mount( //now in test CommentBox have access to store
+    <Root> 
+      <CommentBox/>
+    </Root>
+    ); 
+});
 afterEach(() => { wrapped.unmount(); });
 
 it('should has a textarea and a button', () => {  
