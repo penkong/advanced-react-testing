@@ -1,6 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme'; //mount === fulldom
 import CommentBox from 'components/CommentBox';
+
+
 //full dom has interact need to unmount
 let wrapped;
 beforeEach(() => { wrapped = mount(<CommentBox/>); });
