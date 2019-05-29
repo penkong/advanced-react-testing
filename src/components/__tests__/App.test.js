@@ -1,7 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme'; //render comp not children
-import App from '../App';
-import CommentBox from '../CommentBox';
+import App from 'components/App';
+import CommentBox from 'components/CommentBox';
+import CommentList from 'components/CommentList';
 // //jest it is global func , organizer of test
 // //description, func with logic
 // //jest inside have JSDOM fake deceive react it browser
@@ -15,7 +16,13 @@ import CommentBox from '../CommentBox';
 //   // expect(div.innerHTML).toContain('comment Box');
 //   ReactDOM.unmountComponentAtNode(div); //clean up
 // }); 
-it('should shows a comment box ', () => {
-  const wrapped = shallow(<App/>);
+let wrapped;
+beforeEach(()=>{
+  wrapped = shallow(<App/>);
+});
+it('should shows a commentBox', () => {
   expect(wrapped.find(CommentBox).length).toEqual(1);
+});
+it('should shows a commentList', () => {
+  expect(wrapped.find(CommentList).length).toEqual(1);
 });
