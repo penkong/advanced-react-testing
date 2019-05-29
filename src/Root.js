@@ -4,11 +4,11 @@ import { createStore } from 'redux';
 import reducers from 'reducers';
 //we did this comp for test files can access to store for test
 //handling
-const store = createStore(reducers, {});
-export default (props) => {
+export default ({children, initialState = {}}) => {
+  const store = createStore(reducers, initialState);
   return (
     <Provider store={store}>
-      {props.children}
+      {children}
     </Provider>
   );
 }
