@@ -22,7 +22,7 @@ it('should has a textarea and a button', () => {
 //desc group tests in a func and has own beforeEach
 describe('the textarea', () => {
   beforeEach(()=>{
-    //fake simulate for changes of event
+    //fake simulate for changes of event 
     wrapped.find('textarea').simulate('change', { //this obj go merge with real obj in event handler
       target: { value: 'new comment' }
     });
