@@ -15,9 +15,9 @@ beforeEach(() => {
 });
 afterEach(() => { wrapped.unmount(); });
 
-it('should has a textarea and a button', () => {  
+it('should has a textarea and 2 buttons', () => {  
   expect(wrapped.find('textarea').length).toEqual(1);
-  expect(wrapped.find('button').length).toEqual(1);
+  expect(wrapped.find('button').length).toEqual(2);
 });
 //desc group tests in a func and has own beforeEach
 describe('the textarea', () => {

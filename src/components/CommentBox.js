@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from 'actions';
 
 
+
 //setState is async
 class CommentBox extends Component {
   state = {comment: ''}; 
@@ -14,14 +15,17 @@ class CommentBox extends Component {
   }
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h4>Add a Comment</h4>
-        <textarea value={this.state.comment} 
-          onChange={this.handleChange}/>
-        <div>
-          <button>Submit Comment</button>
-        </div>
-      </form>
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <h4>Add a Comment</h4>
+          <textarea value={this.state.comment} 
+            onChange={this.handleChange}/>
+          <div>
+            <button>Submit Comment</button>
+          </div>
+        </form>
+        <button className="fetch-comments" onClick={this.props.fetchComments}>Fetch comments</button>
+      </div>
     );
   }
 }
