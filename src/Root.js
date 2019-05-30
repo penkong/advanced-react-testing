@@ -6,6 +6,8 @@ import reduxPromise from 'redux-promise';
 import reducers from 'reducers';
 //we did this comp for test files can access to store for test
 //handling
+
+//its HOC func for index
 export default ({children, initialState = {}}) => {
   const store = createStore(reducers, initialState, applyMiddleware(reduxPromise));
   return (
