@@ -5,10 +5,11 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 //......................................................
 const app = express();
-
+const router = require('./router');
 //app setup.
-
-
+app.use(morgan('combined')); //middle, login framework for debugging
+app.use(bodyParser.json({type: '*/*'})); //middle to parse incoming req to json
+router(app);
 
 
 
