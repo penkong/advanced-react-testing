@@ -22,7 +22,8 @@ exports.singup = function (req, res, next){
     const user = new User({ email, password });
     user.save((err) => {
       if (err) return next(err);
-      res.json({ token: tokenForUser(user) }); // we give user token can know him next time
+      res.json({ token: tokenForUser(user) }); 
+      // we give user token can know him next time
     });
   });
 }
