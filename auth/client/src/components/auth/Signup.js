@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { reduxForm , Field } from 'redux-form';
+import { compose } from 'redux'; //allow to right multi hoc
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
 
 class Signup extends Component {
-  onSubmit = (formProps) => {
-    this.props.signup()    
-  }
+  onSubmit = (formProps) => this.props.signup(formProps);    
+  
   render() {
     const { handleSubmit } = this.props; //come from redux form these props
     return (
@@ -26,4 +26,7 @@ class Signup extends Component {
   }
 }
 
-export default reduxForm({ form: 'signup' })(Signup);
+export default compose(
+  connect(null, actions),
+  reduxForm({ form: 'signup' })
+)(Signup);
