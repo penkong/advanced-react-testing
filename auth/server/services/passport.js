@@ -11,8 +11,8 @@ const ExtractJwt = require('passport-jwt').ExtractJwt;
 const LocalStrategy = require('passport-local');
 
 //create localStrategy for sign in user
-const localOptions = { usernameField: email}
-const localLogin = new LocalStrategy(localOptions , function(email, password, done){
+const localOptions =  { usernameField: 'email'}
+const localLogin = new LocalStrategy(localOptions, function (email, password, done) {
   //verify user and pass call done if it correct otherwise call done with false
   User.findOne({ email }, function(err,user){
     if (err) return done(err);
