@@ -4,9 +4,13 @@ import { compose } from 'redux'; //allow to right multi hoc
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
-
+//history props come by redux router
 class Signup extends Component {
-  onSubmit = (formProps) => this.props.signup(formProps);    
+  onSubmit = (formProps) => {
+    this.props.signup(formProps, () => {
+      this.props.history('/feature');
+    }); 
+  }   
 
   render() {
     const { handleSubmit } = this.props; //come from redux form these props
