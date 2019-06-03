@@ -28,4 +28,6 @@ const server = http.createServer(app);
 server.listen(port);
 console.log('listening');
 
-//index.js >> router.js >> controllers(models) >> passport(models)
+//index.js >> router.js >> controllers(models) >>
+// for sign in and authenticate are user can access>> passport(models) do logic for router
+//also >> router.js >> services folder look kind of helpers for logic (middlewares)
