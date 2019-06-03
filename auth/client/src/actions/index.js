@@ -5,6 +5,7 @@ export const signup = (formProps, callback) => async dispatch => {
   try {
     const response = await axios.post('http://localhost:3090/signup',formProps);
     dispatch({ type: AUTH_USER, payload: response.data.token });
+    //do this because after refresh or user back browser help us remember to usr can axess to /feature
     localStorage.setItem('token', response.data.token);
     callback(); //this is history call on submit on comp
   } catch (e) {

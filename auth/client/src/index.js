@@ -14,20 +14,11 @@ import Feature from './components/Feature';
 import Signout from './components/auth/Signout';
 import Signin from './components/auth/Signin';
 
-
-
-
-
-
-
 const store = createStore(
   reducers, 
-  {
-    auth: {authenticated: localStorage.getItem('token')}
-  }, 
+  { auth: {authenticated: localStorage.getItem('token')}}, 
   applyMiddleware(reduxThunk)
 );
-
 
 ReactDOM.render(
   <Provider store={store}>
