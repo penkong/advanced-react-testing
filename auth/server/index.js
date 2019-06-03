@@ -3,23 +3,27 @@ const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const cors = require('cors');
 //......................................................
+const mongoose = require('mongoose');
 const app = express();
 const router = require('./router');
-const mongoose = require('mongoose');
-const cors = require('cors');
 
-//db setup
+//----------------db setup
 mongoose.connect('mongodb://127.0.0.1:27017/auth', {
   useNewUrlParser: true
 })
-//app setup.
-app.use(morgan('combined')); //middle, login framework for debugging
+//---------------app setup.
+//all req pass to morgan and body parser
+//middle, login framework == show login info of req, for debugging
+app.use(morgan('combined')); 
 app.use(cors());
-app.use(bodyParser.json({type: '*/*'})); //middle to parse incoming req to json
+//middle to parse incoming req to json
+app.use(bodyParser.json({type: '*/*'})); 
 router(app);
 
-//server setup
+//----------------server setup
 const port = process.env.PORT || 3090;
 const server = http.createServer(app);
-server.listen(port, console.log('listening'));
+server.listen(port);
+console.log('listening');

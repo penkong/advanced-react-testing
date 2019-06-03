@@ -10,6 +10,8 @@ const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt; 
 const LocalStrategy = require('passport-local');
 
+
+//------------------THIS IS FOR LOGIN---------------------------
 //create localStrategy for sign in user
 const localOptions =  { usernameField: 'email'}
 const localLogin = new LocalStrategy(localOptions, function (email, password, done) {
@@ -24,14 +26,14 @@ const localLogin = new LocalStrategy(localOptions, function (email, password, do
     })
   });
 });
-
+//---------------CREATE CONDITION OF STRATEGY------------------------
 //setup opt for jwt strategy
  //... we say where to look to find jwt of user
 const jwtOptions = {
   jwtFromRequest: ExtractJwt.fromHeader('authorization'),
   secretOrKey: config.secret
 };
-
+//---------------------- THIS IS FOR FIRST TIME ---------------------
 //create jwt strategy constructor              //when user try
 const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done){
   //payload is decoded jwt //done is callback is we can or not authenticate user
