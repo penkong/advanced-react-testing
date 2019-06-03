@@ -1,8 +1,8 @@
-//logic to process req for auth
+//------------- logic to process req for auth --------------
+// controllers are logic of router.js
 const jwt = require('jwt-simple');
 const User = require('../models/user');
 const config = require('../config/config');
-
 
 //arg user model
 //sub is convention as subject //iat issued at time
@@ -10,7 +10,6 @@ function tokenForUser(user){
   const timestamp = new Date().getTime();
   return jwt.encode({ sub: user.id , iat: timestamp }, config.secret);
 }
-
 
 exports.signin = function (req, res, next){
   //user has already give pass and email we must give token only
