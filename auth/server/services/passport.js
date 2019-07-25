@@ -1,7 +1,7 @@
 // I  AM A MIDDLE WARE THAT CONSTANTLY CHECK IF USER HAVE TOKEN
-//help us to authenticate user when that routes need
-//is user logged in or not
-//income req => passport => RouteHandlers
+// help us to authenticate user when that routes need
+// is user logged in or not
+// income req => passport => RouteHandlers
 const passport = require('passport');
 const User = require('../models/user');
 const config = require('../config/config');
